@@ -15,6 +15,8 @@ import { IndexComponent } from './index/index.component';
 import { NavbarComponent } from './index/navbar/navbar.component';
 import { SliderComponent } from './index/slider/slider.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './index/footer/footer.component';
+import { MainComponent } from './index/main/main.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import {HttpClientModule} from '@angular/common/http';
     IndexComponent,
     NavbarComponent,
     SliderComponent,
+    FooterComponent,
+    MainComponent,
   ],
   imports: [
     HttpClientModule,

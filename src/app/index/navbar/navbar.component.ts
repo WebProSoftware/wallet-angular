@@ -7,11 +7,19 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   @ViewChild('navbarSupportedContent') navbarSupportedContent: ElementRef;
+
   private toggle: boolean;
+  private resizeNavbar: boolean;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    window.addEventListener('scroll', this.scroll, true);
+  }
+
+  scroll = () : void => {
+    this.resizeNavbar = window.pageYOffset > 200;
+  };
 
   toggleMenu() {
     return this.toggle = !this.toggle;
