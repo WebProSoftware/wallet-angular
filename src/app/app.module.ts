@@ -17,6 +17,7 @@ import { SliderComponent } from './index/slider/slider.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './index/footer/footer.component';
 import { MainComponent } from './index/main/main.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MainComponent } from './index/main/main.component';
     SliderComponent,
     FooterComponent,
     MainComponent,
+    RegisterComponent,
   ],
   imports: [
     HttpClientModule,

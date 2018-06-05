@@ -1,16 +1,16 @@
 .background-login {
-  background: url('../../assets/img/login-bg.jpg');
+  background: url('../../assets/img/register_bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
 
 .card {
-  background-color: rgba(126, 123, 215, 0.2);
+  background-color: rgba(103, 219, 78, 0.17);
 }
 
 .rgba-gradient {
-  background: rgba(0,0,0,0.4)
+  background: rgba(0,0,0,0.5)
 }
 
 
