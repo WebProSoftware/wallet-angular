@@ -5,13 +5,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatTabsModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatTabsModule, MatInputModule, MatRippleModule, MatTooltipModule } from '@angular/material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { IndexComponent } from './index/index.component';
 import { NavbarComponent } from './index/navbar/navbar.component';
@@ -32,6 +31,11 @@ import { JwtInterceptor } from "./_helpers/jwt.interceptor";
 import { AlertService } from "./_services/alert.service";
 import { AuthenticationService } from "./_services/authentication.service";
 import { UserService } from "./_services/user.service";
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AdminNavbarComponent } from './admin/_component/admin-navbar/admin-navbar.component';
+import { AdminSidebarComponent } from './admin/_component/admin-sidebar/admin-sidebar.component';
+import { AdminFooterComponent } from './admin/_component/admin-footer/admin-footer.component';
+import { AdminComponent } from './admin/_layout/admin/admin.component';
 
 
 @NgModule({
@@ -49,6 +53,10 @@ import { UserService } from "./_services/user.service";
     LoginFormComponent,
     AlertComponent,
     DashboardComponent,
+    AdminNavbarComponent,
+    AdminSidebarComponent,
+    AdminFooterComponent,
+    AdminComponent,
   ],
   imports: [
     HttpClientModule,
@@ -59,6 +67,8 @@ import { UserService } from "./_services/user.service";
     MatCheckboxModule,
     MatTabsModule,
     MatInputModule,
+    MatRippleModule,
+    MatTooltipModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot()
@@ -67,7 +77,9 @@ import { UserService } from "./_services/user.service";
     MatButtonModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    MatRippleModule,
+    MatTooltipModule
   ],
   providers: [
     AuthGuard,
@@ -79,7 +91,6 @@ import { UserService } from "./_services/user.service";
       useClass: JwtInterceptor,
       multi: true
     },
-    fakeBackendProvider,
   ],
   bootstrap: [AppComponent]
 })
