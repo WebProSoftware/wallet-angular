@@ -15,6 +15,12 @@ export class LoginFormComponent implements OnInit {
   loading = false;
   returnUrl: string;
 
+  error = false;
+  errorText : string;
+
+  info = false;
+  infoText: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -38,6 +44,7 @@ export class LoginFormComponent implements OnInit {
     this.authenticationService.login(this.form.value.email, this.form.value.password)
       .subscribe(
         data => {
+          this.setMessage(data);
           this.router.navigate([this.returnUrl]);
         },
         error => {
@@ -46,4 +53,15 @@ export class LoginFormComponent implements OnInit {
         }
       )
   }
+
+  setMessage(res) {
+    this.error = false;
+    this.errorText = "";
+
+    if(res.status === "fail") {
+      this.error = true;
+      this.errorText = res.msg;
+    }
+  }
+
 }

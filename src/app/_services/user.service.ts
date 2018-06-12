@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { User } from '../user';
+import {Config} from "../_config/config";
 
 @Injectable()
 export class UserService {
+  readonly rootUrl = Config.API_ENDPOINT;
   constructor(private http: HttpClient) { }
 
   getAll() {
@@ -15,8 +17,8 @@ export class UserService {
     return this.http.get('/api/users/' + id);
   }
 
-  create(user: User) {
-    return this.http.post('/api/users', user);
+  registerUser(user: User) {
+    return this.http.post(this.rootUrl + '/user/register', { data: user });
   }
 
   update(user: User) {

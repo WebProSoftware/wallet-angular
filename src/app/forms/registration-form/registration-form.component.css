@@ -1,0 +1,15 @@
+.card {
+  background-color: rgba(103, 219, 78, 0.17);
+}
+
+label {
+  color: #ffffff !important;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}

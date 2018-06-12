@@ -36,6 +36,7 @@ import { AdminNavbarComponent } from './admin/_component/admin-navbar/admin-navb
 import { AdminSidebarComponent } from './admin/_component/admin-sidebar/admin-sidebar.component';
 import { AdminFooterComponent } from './admin/_component/admin-footer/admin-footer.component';
 import { AdminComponent } from './admin/_layout/admin/admin.component';
+import { RegistrationFormComponent } from './forms/registration-form/registration-form.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { AdminComponent } from './admin/_layout/admin/admin.component';
     AdminSidebarComponent,
     AdminFooterComponent,
     AdminComponent,
+    RegistrationFormComponent,
   ],
   imports: [
     HttpClientModule,

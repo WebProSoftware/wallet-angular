@@ -31,6 +31,7 @@
         <label for="password" class="active">Podaj Hasło</label>
       </div>
       <div class="text-center mt-4">
+        <div class="alert alert-danger" [hidden]="!error"> {{ errorText }} </div>
         <button class="btn btn-indigo" type="submit" [hidden]="!form.valid">Loguj</button>
         <hr class="hr-light mb-3 mt-4">
         <div class="inline-ul text-center d-flex justify-content-center">

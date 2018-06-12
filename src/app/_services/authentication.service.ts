@@ -11,7 +11,6 @@ export class AuthenticationService {
 
     return this.http.post<any>( Config.API_ENDPOINT + '/authenticate', { username: username, password: password })
       .map(user => {
-        console.log(user);
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
