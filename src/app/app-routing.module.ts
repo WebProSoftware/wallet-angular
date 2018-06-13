@@ -9,6 +9,8 @@ import { RegisterComponent } from "./register/register.component";
 import { AuthGuard } from './_guards/auth.guard';
 import {DashboardComponent} from "./admin/dashboard/dashboard.component";
 import {AdminComponent} from "./admin/_layout/admin/admin.component";
+import {UserProfileComponent} from "./admin/user-profile/user-profile.component";
+import {MoneyComponent} from "./admin/money/money.component";
 
 const routes: Routes = [
   { path: '', component: IndexComponent},
@@ -21,6 +23,24 @@ const routes: Routes = [
     children:
       [
         { path: '', component: DashboardComponent , outlet: 'admin-page' },
+      ]
+  },
+  {
+    path: 'user-profile',
+    canActivate: [AuthGuard],
+    component: AdminComponent,
+    children:
+      [
+        { path: '', component: UserProfileComponent, outlet: 'admin-page' },
+      ]
+  },
+  {
+    path: 'money',
+    canActivate: [AuthGuard],
+    component: AdminComponent,
+    children:
+      [
+        { path: '', component: MoneyComponent, outlet: 'admin-page' },
       ]
   },
   { path: '**', component: PageNotFoundComponent}

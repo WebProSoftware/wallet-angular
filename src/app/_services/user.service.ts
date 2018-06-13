@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { User } from '../user';
 import {Config} from "../_config/config";
+import {Observable} from "rxjs";
+
 
 @Injectable()
 export class UserService {
@@ -13,8 +15,8 @@ export class UserService {
     return this.http.get<User[]>('/api/users');
   }
 
-  getById(id: number) {
-    return this.http.get('/api/users/' + id);
+  getById() {
+    return this.http.get(this.rootUrl +'/user')
   }
 
   registerUser(user: User) {

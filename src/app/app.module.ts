@@ -37,6 +37,8 @@ import { AdminSidebarComponent } from './admin/_component/admin-sidebar/admin-si
 import { AdminFooterComponent } from './admin/_component/admin-footer/admin-footer.component';
 import { AdminComponent } from './admin/_layout/admin/admin.component';
 import { RegistrationFormComponent } from './forms/registration-form/registration-form.component';
+import { UserProfileComponent } from './admin/user-profile/user-profile.component';
+import { MoneyComponent } from './admin/money/money.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { RegistrationFormComponent } from './forms/registration-form/registratio
     AdminFooterComponent,
     AdminComponent,
     RegistrationFormComponent,
+    UserProfileComponent,
+    MoneyComponent,
   ],
   imports: [
     HttpClientModule,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { AuthenticationService } from '../_services/authentication.service';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -13,6 +14,8 @@ export class JwtInterceptor implements HttpInterceptor {
           Authorization: `Bearer ${currentUser.token}`
         }
       });
+
+      console.log(request);
     }
 
     return next.handle(request);

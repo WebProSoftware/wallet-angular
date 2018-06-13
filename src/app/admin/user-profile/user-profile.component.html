@@ -1,0 +1,117 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row" *ngIf="isLoading">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Edytuj profil </h4>
+            <p class="card-category">Edytuj swoje dane</p>
+          </div>
+          <div class="card-body" >
+            <form  #userDetailsForm="ngForm" (ngSubmit)="OnSubmit(userDetailsForm)">
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput
+                           name="email"
+                           [(ngModel)]="_user.email"
+                           [pattern]="emailPattern"
+                           placeholder="Adres Email"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput
+                           name="firstName"
+                           type="text"
+                           [(ngModel)]="_user.UserDetails.firstName"
+                           placeholder="Imię"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput
+                           name="lastName"
+                           type="text"
+                           [(ngModel)]="_user.UserDetails.lastName"
+                           placeholder="Nazwisko"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-10">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                         name="street"
+                         type="text"
+                         [(ngModel)]="_user.UserAdress.street"
+                         placeholder="Adres"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-2">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                         name="numberLocal"
+                         type="text"
+                         [(ngModel)]="_user.UserAdress.numberLocal"
+                         placeholder="Adres"
+                  />
+                </mat-form-field>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <mat-form-field class="example-full-width">
+                    <input matInput
+                           name="city"
+                           type="text"
+                           #city="ngModel"
+                           [(ngModel)]="_user.UserAdress.city"
+                           placeholder="Miasto"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput
+                           name="postCode"
+                           type="text"
+                           #postCode="ngModel"
+                           [(ngModel)]="_user.UserAdress.postCode"
+                           placeholder="Kod pocztowy"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Zapisz zmiany</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="#pablo">
+              <img class="img" src="../assets/img/faces/me.jpg" />
+            </a>
+          </div>
+          <div class="card-body">
+            <h6 class="card-category text-gray">Twórca</h6>
+            <h4 class="card-title">Patryk Przybek</h4>
+            <p class="card-description">
+              Aplikacja w trakcje rozwoju
+            </p>
+            <a href="#" class="btn btn-danger btn-round">KONTAKT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
