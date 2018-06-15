@@ -1,274 +1,63 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
+      <div class="btn-group mr-3">
+        <button mat-raised-button type="submit" class="btn btn-success mr-3 pull-right" (click)="toogleForm()">Dodaj wydatek/przychód</button>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-12">
-        <div class="card">
-          <div class="card-header card-header-danger">
-            <h4 class="card-title ">Simple Table</h4>
-            <p class="card-category"> Here is a subtitle for this table</p>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead class=" text-primary">
-                <th>
-                  ID
-                </th>
-                <th>
-                  Name
-                </th>
-                <th>
-                  Country
-                </th>
-                <th>
-                  City
-                </th>
-                <th>
-                  Salary
-                </th>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    Dakota Rice
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
-                  <td class="text-primary">
-                    $36,738
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    Minerva Hooper
-                  </td>
-                  <td>
-                    Curaçao
-                  </td>
-                  <td>
-                    Sinaai-Waas
-                  </td>
-                  <td class="text-primary">
-                    $23,789
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    3
-                  </td>
-                  <td>
-                    Sage Rodriguez
-                  </td>
-                  <td>
-                    Netherlands
-                  </td>
-                  <td>
-                    Baileux
-                  </td>
-                  <td class="text-primary">
-                    $56,142
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    4
-                  </td>
-                  <td>
-                    Philip Chaney
-                  </td>
-                  <td>
-                    Korea, South
-                  </td>
-                  <td>
-                    Overland Park
-                  </td>
-                  <td class="text-primary">
-                    $38,735
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    5
-                  </td>
-                  <td>
-                    Doris Greene
-                  </td>
-                  <td>
-                    Malawi
-                  </td>
-                  <td>
-                    Feldkirchen in Kärnten
-                  </td>
-                  <td class="text-primary">
-                    $63,542
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    6
-                  </td>
-                  <td>
-                    Mason Porter
-                  </td>
-                  <td>
-                    Chile
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-primary">
-                    $78,615
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+        <div *ngIf="showForm">
+          <app-money-form></app-money-form>
+        </div>
+        <div class="card card-plain">
+          <div class="card-header card-header-primary">
+            <h4 class="cart-title "> Saldo: {{ summary }} zł </h4>
           </div>
         </div>
-      </div>
-      <div class="col-md-12">
         <div class="card card-plain">
-          <div class="card-header card-header-danger">
-            <h4 class="card-title mt-0"> Table on Plain Background</h4>
-            <p class="card-category"> Here is a subtitle for this table</p>
+          <div class="card-header card-header-warning">
+            <h4 class="card-title mt-0"> Lista wydatków w tym miesiącu </h4>
+            <p class="card-category"> Posortowane według daty </p>
           </div>
+
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead class="">
-                <th>
-                  ID
-                </th>
-                <th>
-                  Name
-                </th>
-                <th>
-                  Country
-                </th>
-                <th>
-                  City
-                </th>
-                <th>
-                  Salary
-                </th>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>
-                    1
-                  </td>
-                  <td>
-                    Dakota Rice
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
-                  <td>
-                    $36,738
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    2
-                  </td>
-                  <td>
-                    Minerva Hooper
-                  </td>
-                  <td>
-                    Curaçao
-                  </td>
-                  <td>
-                    Sinaai-Waas
-                  </td>
-                  <td>
-                    $23,789
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    3
-                  </td>
-                  <td>
-                    Sage Rodriguez
-                  </td>
-                  <td>
-                    Netherlands
-                  </td>
-                  <td>
-                    Baileux
-                  </td>
-                  <td>
-                    $56,142
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    4
-                  </td>
-                  <td>
-                    Philip Chaney
-                  </td>
-                  <td>
-                    Korea, South
-                  </td>
-                  <td>
-                    Overland Park
-                  </td>
-                  <td>
-                    $38,735
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    5
-                  </td>
-                  <td>
-                    Doris Greene
-                  </td>
-                  <td>
-                    Malawi
-                  </td>
-                  <td>
-                    Feldkirchen in Kärnten
-                  </td>
-                  <td>
-                    $63,542
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    6
-                  </td>
-                  <td>
-                    Mason Porter
-                  </td>
-                  <td>
-                    Chile
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td>
-                    $78,615
-                  </td>
-                </tr>
-                </tbody>
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+              <table mat-table [dataSource]="dataSource" matSort style="width: 100%">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="Data">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+                  <td mat-cell *matCellDef="let element"> {{ element.createdAt.timestamp * 1000 | date:'yyyy-MM-dd HH:mm'  }} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="Typ">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Typ </th>
+                  <td mat-cell *matCellDef="let element"> {{element.moneyCategory.moneyType.name}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Kategoria">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Kategoria </th>
+                  <td mat-cell *matCellDef="let element"> {{element.moneyCategory.name}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Kwota">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Kwota </th>
+                  <td mat-cell *matCellDef="let element"> {{element.amountTotal.toFixed(2)}} zł </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClick(row)"></tr>
               </table>
+              <mat-paginator [pageSizeOptions]="[10, 15, 50]" showFirstLastButtons></mat-paginator>
             </div>
-          </div>
         </div>
       </div>
     </div>

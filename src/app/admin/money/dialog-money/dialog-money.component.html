@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>{{ data.moneyCategory.name }}</h1>
+<div mat-dialog-content>
+
+  <h4>Data: {{ data.createdAt.timestamp * 1000 | date:'yyyy-MM-dd'  }}</h4>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.amountTotal" placeholder="Popraw kwote">
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <div class="btn-group">
+    <button class="btn-danger" mat-button (click)="delete(data.id)">Usuń wpis</button>
+  </div>
+  <div class="btn-group text-right right pull-lg-right" >
+    <button class="btn-primary" mat-button (click)="onNoClick()">Wróc</button>
+    <button class="btn-success "mat-button >Zapisz zmainy</button>
+  </div>
+</div>

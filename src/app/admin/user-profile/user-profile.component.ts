@@ -3,27 +3,9 @@ import {UserService} from '../../_services/user.service'
 import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
 import {Observable} from "rxjs";
 import {Response} from "@angular/http";
+import {AlertService} from "../../_services/alert.service";
+import {User} from "../../users";
 
-export interface UserAdress {
-  city?: string;
-  postCode?: string;
-  street?: string;
-  numberLocal?: string;
-}
-
-export interface UserDetails {
-  firstName?: string;
-  lastName?: string;
-  phoneNumber?: string;
-
-}
-
-export interface User {
-  id: number;
-  email: string;
-  UserAdress?: UserAdress;
-  UserDetails?: UserDetails;
-}
 
 @Component({
   selector: 'app-user-profile',
@@ -35,9 +17,10 @@ export class UserProfileComponent implements OnInit {
 
   _user: User;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  postcodePattern = "^[0-9]{2}-[0-9]{3}$";
   isLoading: boolean = false;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private alertService: AlertService) { }
 
   getUserDetails() {
     this.userService.getById()
@@ -50,7 +33,6 @@ export class UserProfileComponent implements OnInit {
         if(!data.UserAdress){
           this._user.UserAdress = {}
         }
-        console.log(data);
       });
   }
 
@@ -60,13 +42,24 @@ export class UserProfileComponent implements OnInit {
     this.getUserDetails();
   }
 
-
   ngOnInit() {
     this.resetForm();
   }
 
   OnSubmit(form: NgForm) {
-    console.log(form);
+    if(form.valid) {
+      this.userService.update(form.value)
+        .subscribe(res => this.setMessage(res));
+    }
+    else {
+      this.alertService.error("Błąd formularza. Sprawdź poprawność");
+    }
   }
+
+  setMessage(res) {
+    if(res.status === "fail") { this.alertService.error(res.msg) }
+    if(res.status === "success") { this.alertService.success(res.msg) }
+  }
+
 
 }

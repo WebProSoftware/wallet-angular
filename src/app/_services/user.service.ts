@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<User[]>('/api/users');
+    return this.http.get(this.rootUrl + '/users');
   }
 
   getById() {
@@ -24,10 +24,11 @@ export class UserService {
   }
 
   update(user: User) {
-    return this.http.put('/api/users/' + user.id, user);
+    console.log(user);
+    return this.http.put(this.rootUrl + '/user/' + user.id, {data: user });
   }
 
   delete(id: number) {
-    return this.http.delete('/api/users/' + id);
+    return this.http.delete(this.rootUrl + '/user/' + id);
   }
 }

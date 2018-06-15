@@ -11,6 +11,9 @@ import {DashboardComponent} from "./admin/dashboard/dashboard.component";
 import {AdminComponent} from "./admin/_layout/admin/admin.component";
 import {UserProfileComponent} from "./admin/user-profile/user-profile.component";
 import {MoneyComponent} from "./admin/money/money.component";
+import {DistanceComponent} from "./admin/distance/distance.component";
+import {AdminGuard} from "./_guards/admin.guard";
+import {AdminConfigComponent} from "./admin/admin-config/admin-config.component";
 
 const routes: Routes = [
   { path: '', component: IndexComponent},
@@ -41,6 +44,24 @@ const routes: Routes = [
     children:
       [
         { path: '', component: MoneyComponent, outlet: 'admin-page' },
+      ]
+  },
+  {
+    path: 'distance',
+    canActivate: [AuthGuard],
+    component: AdminComponent,
+    children:
+      [
+        { path: '', component: DistanceComponent , outlet: 'admin-page' },
+      ]
+  },
+  {
+    path: 'admin',
+    canActivate: [AdminGuard],
+    component: AdminComponent,
+    children:
+      [
+        { path: '', component: AdminConfigComponent , outlet: 'admin-page' },
       ]
   },
   { path: '**', component: PageNotFoundComponent}

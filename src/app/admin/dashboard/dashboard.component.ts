@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import {MoneyService} from "../../_services/money.service";
+import { Stats } from "../../stats";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +10,9 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  isLoading: boolean = false;
+  constructor( private moneyService: MoneyService) { }
+
   startAnimationForLineChart(chart){
     let seq: any, delays: any, durations: any;
     seq = 0;
@@ -65,7 +69,17 @@ export class DashboardComponent implements OnInit {
 
     seq2 = 0;
   };
+
+  stats: Stats;
+
   ngOnInit() {
+
+    this.moneyService.getStat()
+      .subscribe((res: Stats) => {
+        this.isLoading = true;
+        this.stats = res;
+      });
+
     /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
     const dataDailySalesChart: any = {

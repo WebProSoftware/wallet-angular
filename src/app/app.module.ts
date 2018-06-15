@@ -5,7 +5,22 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatTabsModule, MatInputModule, MatRippleModule, MatTooltipModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatTabsModule,
+  MatInputModule,
+  MatRippleModule,
+  MatTooltipModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatSortModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatNativeDateModule,
+  MatBottomSheetModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,7 +54,13 @@ import { AdminComponent } from './admin/_layout/admin/admin.component';
 import { RegistrationFormComponent } from './forms/registration-form/registration-form.component';
 import { UserProfileComponent } from './admin/user-profile/user-profile.component';
 import { MoneyComponent } from './admin/money/money.component';
-
+import { MoneyService } from "./_services/money.service";
+import { MoneyFormComponent } from './forms/money-form/money-form.component';
+import { DistanceComponent } from './admin/distance/distance.component';
+import { DialogMoneyComponent } from './admin/money/dialog-money/dialog-money.component';
+import { LoaderComponent } from './utils/loader/loader.component';
+import {AdminGuard} from "./_guards/admin.guard";
+import { AdminConfigComponent } from './admin/admin-config/admin-config.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +84,12 @@ import { MoneyComponent } from './admin/money/money.component';
     RegistrationFormComponent,
     UserProfileComponent,
     MoneyComponent,
+    MoneyFormComponent,
+    DistanceComponent,
+    DialogMoneyComponent,
+    LoaderComponent,
+    AdminConfigComponent,
+
   ],
   imports: [
     HttpClientModule,
@@ -75,6 +102,14 @@ import { MoneyComponent } from './admin/money/money.component';
     MatInputModule,
     MatRippleModule,
     MatTooltipModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatBottomSheetModule,
+    MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot()
@@ -85,13 +120,24 @@ import { MoneyComponent } from './admin/money/money.component';
     MatTabsModule,
     MatInputModule,
     MatRippleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatBottomSheetModule,
+    MatProgressSpinnerModule,
   ],
+  entryComponents: [MoneyComponent, DialogMoneyComponent],
   providers: [
     AuthGuard,
+    AdminGuard,
     AlertService,
     AuthenticationService,
     UserService,
+    MoneyService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

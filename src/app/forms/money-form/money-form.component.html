@@ -1,0 +1,91 @@
+<div class="col-md-6 col-xs-12">
+  <div class="card">
+    <div class="card-header card-header-danger">
+      <h4 class="card-title">Dodaj </h4>
+      <p class="card-category">Wydatek/przychód</p>
+    </div>
+    <div class="card-body" >
+      <form  #money="ngForm" (ngSubmit)="OnSubmit(money)">
+        <div class="row">
+          <div class="col-md-12">
+            <mat-form-field class="example-full-width">
+              <input matInput
+                     [matDatepicker]="picker"
+                     name="data"
+                     [(ngModel)]="_money.date"
+                     placeholder="Podaj date"
+                     required
+              />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <mat-form-field class="example-full-width">
+              <mat-select
+                      [(ngModel)]="_money.typ"
+                      placeholder="Typ wydatku "
+                      name="typ"
+                      (ngModelChange)="onChange()"
+                      required
+              >
+                <mat-option *ngFor="let type of types" [value]="type.value">
+                  {{ type.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row" *ngIf="categories">
+          <div class="col-md-12">
+            <mat-form-field class="example-full-width">
+              <mat-select
+                [(ngModel)]="_money.category"
+                placeholder="Kategora"
+                name="category"
+                required
+              >
+                <mat-option *ngFor="let category of categories" [value]="category.id">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-md-12">
+            <mat-form-field class="example-full-width">
+              <input matInput
+                     name="title"
+                     type="text"
+                     [(ngModel)]="_money.title"
+                     placeholder="Nazwa"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-md-12">
+            <mat-form-field class="example-full-width">
+              <input matInput
+                     name="amountTotal"
+                     type="number"
+                     [(ngModel)]="_money.amountTotal"
+                     placeholder="Kwota"
+                     required
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <button  mat-raised-button type="submit" class="btn btn-primary pull-right">Dodaj</button>
+        <div class="clearfix"></div>
+        <!--alert-->
+        <alert></alert>
+        <!--end alert-->
+      </form>
+    </div>
+  </div>
+</div>
+

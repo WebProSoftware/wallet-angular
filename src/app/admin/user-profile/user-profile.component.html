@@ -1,5 +1,8 @@
 <div class="main-content">
   <div class="container-fluid">
+    <div class="row flex-center" *ngIf="!isLoading">
+        <app-loader ></app-loader>
+    </div>
     <div class="row" *ngIf="isLoading">
       <div class="col-md-8">
         <div class="card">
@@ -9,6 +12,7 @@
           </div>
           <div class="card-body" >
             <form  #userDetailsForm="ngForm" (ngSubmit)="OnSubmit(userDetailsForm)">
+              <input name="id" type="hidden" [(ngModel)]="_user.id" >
               <div class="row">
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
@@ -85,12 +89,16 @@
                            #postCode="ngModel"
                            [(ngModel)]="_user.UserAdress.postCode"
                            placeholder="Kod pocztowy"
+                           [pattern]="postcodePattern"
                     />
                   </mat-form-field>
                 </div>
               </div>
               <button mat-raised-button type="submit" class="btn btn-danger pull-right">Zapisz zmiany</button>
               <div class="clearfix"></div>
+              <!--alert-->
+              <alert></alert>
+              <!--end alert-->
             </form>
           </div>
         </div>
@@ -108,7 +116,7 @@
             <p class="card-description">
               Aplikacja w trakcje rozwoju
             </p>
-            <a href="#" class="btn btn-danger btn-round">KONTAKT</a>
+            <a href="https://www.facebook.com/DarknessLightOfficial" class="btn btn-danger btn-round">KONTAKT</a>
           </div>
         </div>
       </div>
