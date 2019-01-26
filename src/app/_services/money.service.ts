@@ -15,6 +15,10 @@ export class MoneyService {
     return this.http.get(this.rootUrl + '/categories');
   }
 
+  getTypes() {
+    return this.http.get(this.rootUrl + '/money/types');
+  }
+
   getStat() {
     return this.http.get(this.rootUrl + '/money/stat');
   }

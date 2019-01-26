@@ -4,6 +4,7 @@ import {NgForm} from "@angular/forms";
 import {MoneyCategory} from "../../money";
 import {AlertService} from "../../_services/alert.service";
 import {MoneyComponent} from "../../admin/money/money.component";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-money-form',
@@ -16,10 +17,7 @@ export class MoneyFormComponent implements OnInit {
   _categories: any;
 
   categories: MoneyCategory[];
-  types = [
-    { value: 1, viewValue: "Przychody" },
-    { value: 2, viewValue: "Wydatki" }
-  ];
+  types: Types[];
 
 
   constructor(
@@ -31,7 +29,12 @@ export class MoneyFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.resetForm();
+
+    this.moneyService.getTypes().subscribe(
+      (types: Types[]) => this.types = types,
+      (err: HttpErrorResponse) => console.log(err.message),
+      () => this.resetForm(),
+    );
   }
 
   getCategory() {

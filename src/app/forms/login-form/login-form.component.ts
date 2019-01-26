@@ -41,6 +41,7 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
+
     this.authenticationService.login(this.form.value.email, this.form.value.password)
       .subscribe(
         data => {
